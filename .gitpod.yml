@@ -10,4 +10,17 @@ image:
 tasks:
   - init: ./mvnw install -DskipTests=false
 
+  - name: Install PostgreSQL
+    command: |
+      sudo apt-get update
+      sudo apt-get install -y postgresql postgresql-contrib
+      sudo service postgresql start
+
+  - name: Create a database and a user
+    command: |
+      sudo -u postgres psql -c "CREATE DATABASE students;"
+      sudo -u postgres psql -c "CREATE USER postgres WITH PASSWORD 'postgres';"
+      sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE students TO postgres;"
+
+
 
