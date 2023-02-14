@@ -13,15 +13,8 @@ import jakarta.persistence.Table;
 @Table
 public class Student {
   @Id
-  @SequenceGenerator(
-    name = "student_squence",
-    sequenceName = "student_squence",
-    allocationSize = 1
-  )
-  @GeneratedValue(
-    strategy = GenerationType.SEQUENCE,
-    generator = "student_squence"
-  )
+  @SequenceGenerator(name = "student_squence", sequenceName = "student_squence", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_squence")
   private Long id;
   private String name;
   private String email;
@@ -32,12 +25,11 @@ public class Student {
   }
 
   public Student(
-    Long id,
-    String name,
-    String email,
-    LocalDate dob,
-    Integer age
-  ) {
+      Long id,
+      String name,
+      String email,
+      LocalDate dob,
+      Integer age) {
     this.id = id;
     this.name = name;
     this.email = email;
@@ -75,7 +67,7 @@ public class Student {
   public void setEmail(String email) {
     this.email = email;
   }
-  
+
   public LocalDate getDob() {
     return dob;
   }
@@ -95,12 +87,12 @@ public class Student {
   @Override
   public String toString() {
     return "Student{" +
-      "id=" + id +
-      ", name='" + name + '\'' +
-      ", email='" + email + '\'' +
-      ", dob=" + dob +
-      ", age=" + age +
-      '}';
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", dob=" + dob +
+        ", age=" + age +
+        '}';
   }
 
 }
